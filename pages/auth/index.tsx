@@ -4,6 +4,7 @@ import { ChangeEvent, useState } from 'react';
 const Auth = () => {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <div className='relative h-full w-full bg-[url("/images/hero.jpg")] bg-no-repeat bg-center bg-fixed bg-cover'>
       <div className='bg-black w-full h-full lg:bg-opacity-50'>
@@ -20,7 +21,7 @@ const Auth = () => {
                 onChange={(event: ChangeEvent<HTMLInputElement>) =>
                   setUsername(event.target.value)
                 }
-                type='username'
+                type='text'
                 value={username}
               />
               <Input
@@ -31,6 +32,15 @@ const Auth = () => {
                 }
                 type='email'
                 value={email}
+              />
+              <Input
+                id='password'
+                label='Password'
+                onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                  setPassword(event.target.value)
+                }
+                type='password'
+                value={password}
               />
             </div>
           </div>
