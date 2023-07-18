@@ -20,18 +20,20 @@ const Auth = () => {
         <div className='flex justify-center'>
           <div className='bg-black bg-opacity-70 px-16 py-16 self-center mt-2 lg:w-2/5 lg:max-w-md rounded-md w-full'>
             <h2 className='text-white text-4xl mb-8 font-semibold'>
-              {variant === 'login' ? 'Sign in' : 'Create an account'}
+              {variant === 'login' ? 'Sign in' : 'Register'}
             </h2>
             <div className='flex flex-col gap-4'>
-              <Input
-                id='username'
-                label='Username'
-                onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                  setUsername(event.target.value)
-                }
-                type='text'
-                value={username}
-              />
+              {variant === 'register' && (
+                <Input
+                  id='username'
+                  label='Username'
+                  onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                    setUsername(event.target.value)
+                  }
+                  type='text'
+                  value={username}
+                />
+              )}
               <Input
                 id='email'
                 label='Email'
