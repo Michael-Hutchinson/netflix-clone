@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Auth = () => {
   const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [variant, setVariant] = useState('login');
 
@@ -16,13 +16,13 @@ const Auth = () => {
     try {
       await axios.post('/api/register', {
         email,
-        username,
+        name,
         password,
       });
     } catch (error) {
       console.log(error);
     }
-  }, [email, password, username]);
+  }, [email, password, name]);
 
   return (
     <div className='relative h-full w-full bg-[url("/images/hero.jpg")] bg-no-repeat bg-center bg-fixed bg-cover'>
@@ -41,10 +41,10 @@ const Auth = () => {
                   id='username'
                   label='Username'
                   onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                    setUsername(event.target.value)
+                    setName(event.target.value)
                   }
                   type='text'
-                  value={username}
+                  value={name}
                 />
               )}
               <Input
