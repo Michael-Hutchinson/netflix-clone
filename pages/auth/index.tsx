@@ -38,7 +38,7 @@ const Auth = () => {
             <div className='flex flex-col gap-4'>
               {variant === 'register' && (
                 <Input
-                  id='username'
+                  id='name'
                   label='Username'
                   onChange={(event: ChangeEvent<HTMLInputElement>) =>
                     setName(event.target.value)
@@ -66,7 +66,10 @@ const Auth = () => {
                 value={password}
               />
             </div>
-            <button className='bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition'>
+            <button
+              onClick={register}
+              className='bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition'
+            >
               {variant === 'login' ? 'Sign in' : 'Register'}
             </button>
             <p className='text-neutral-500 mt-12'>
