@@ -2,8 +2,10 @@ import Input from '@/components/Input/Input';
 import { ChangeEvent, useCallback, useState } from 'react';
 import axios from 'axios';
 import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 const Auth = () => {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -33,10 +35,12 @@ const Auth = () => {
         email,
         password,
       });
+
+      router.push('/');
     } catch (error) {
       console.log(error);
     }
-  }, [email, password]);
+  }, [email, password, router]);
 
   return (
     <div className='relative h-full w-full bg-[url("/images/hero.jpg")] bg-no-repeat bg-center bg-fixed bg-cover'>
