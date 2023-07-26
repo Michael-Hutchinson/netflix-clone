@@ -2,12 +2,10 @@ import Input from '@/components/Input/Input';
 import { ChangeEvent, useCallback, useState } from 'react';
 import axios from 'axios';
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
 
 const Auth = () => {
-  const router = useRouter();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -20,17 +18,14 @@ const Auth = () => {
   const login = useCallback(async () => {
     try {
       await signIn('credentials', {
-        redirect: false,
-        callbackUrl: '/',
+        callbackUrl: '/profile',
         email,
         password,
       });
-
-      router.push('/');
     } catch (error) {
       console.log(error);
     }
-  }, [email, password, router]);
+  }, [email, password]);
 
   const register = useCallback(async () => {
     try {
@@ -98,7 +93,7 @@ const Auth = () => {
               <div
                 onClick={() =>
                   signIn('google', {
-                    callbackUrl: '/',
+                    callbackUrl: '/profile',
                   })
                 }
                 className='w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition'
@@ -108,7 +103,7 @@ const Auth = () => {
               <div
                 onClick={() =>
                   signIn('github', {
-                    callbackUrl: '/',
+                    callbackUrl: '/profile',
                   })
                 }
                 className='w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition'
