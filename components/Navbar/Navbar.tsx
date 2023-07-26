@@ -1,4 +1,5 @@
 import NavItem from './NavItem/NavItem';
+import { BsChevronDown } from 'react-icons/bs';
 
 const Navbar = () => {
   return (
@@ -7,9 +8,15 @@ const Navbar = () => {
         <img className='h-4 lg:h-7' src='/images/logo.png' alt='netflix logo' />
         <div className='flex-row ml-8 gap-7 hidden lg:flex'>
           <NavItem label='Home' />
-          <NavItem label='Home' />
-          <NavItem label='Home' />
-          <NavItem label='Home' />
+          <NavItem label='Series' />
+          <NavItem label='Films' />
+          <NavItem label='New & popular' />
+          <NavItem label='My list' />
+          <NavItem label='Browse by languages' />
+        </div>
+        <div className='lg:hidden flex flex-row items-center gap-2 ml-8 cursor-pointer relative'>
+          <p className='text-white text-sm'>Browse</p>
+          <BsChevronDown className='text-white transition' />
         </div>
       </div>
     </nav>
