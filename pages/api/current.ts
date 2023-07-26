@@ -3,16 +3,16 @@ import serverAuth from '@/lib/serverAuth';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'GET') {
-    res.status(405).end();
+    return res.status(405).end();
   }
 
   try {
     const { currentUser } = await serverAuth(req);
 
-    return res.status(200).json({ currentUser });
+    return res.status(200).json(currentUser);
   } catch (error) {
     console.error(error);
-    res.status(400).end();
+    return res.status(500).end();
   }
 };
 
