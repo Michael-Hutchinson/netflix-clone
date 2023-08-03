@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import MobileMenu from './MobileMenu/MobileMenu';
 import NavItem from './NavItem/NavItem';
 import { BsBell, BsChevronDown, BsSearch } from 'react-icons/bs';
+import AccountMenu from './AccountMenu/AccountMenu';
 
 const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -41,6 +42,8 @@ const Navbar = () => {
             <div className='w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden'>
               <img src='/images/default-blue.png' alt='profile image' />
             </div>
+            <BsChevronDown className='text-white transition' />
+            <AccountMenu />
           </div>
         </div>
       </div>
