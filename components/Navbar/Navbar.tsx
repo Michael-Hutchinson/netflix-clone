@@ -1,3 +1,4 @@
+import MobileMenu from './MobileMenu/MobileMenu';
 import NavItem from './NavItem/NavItem';
 import { BsChevronDown } from 'react-icons/bs';
 
@@ -17,6 +18,7 @@ const Navbar = () => {
         <div className='lg:hidden flex flex-row items-center gap-2 ml-8 cursor-pointer relative'>
           <p className='text-white text-sm'>Browse</p>
           <BsChevronDown className='text-white transition' />
+          <MobileMenu />
         </div>
       </div>
     </nav>
