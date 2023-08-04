@@ -50,7 +50,11 @@ const Navbar = () => {
             <div className='w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden'>
               <img src='/images/default-blue.png' alt='profile image' />
             </div>
-            <BsChevronDown className='text-white transition' />
+            <BsChevronDown
+              className={`text-white transition ${
+                accountMenu ? 'rotate-180' : 'rotate-0'
+              }`}
+            />
             <AccountMenu open={accountMenu} />
           </div>
         </div>
