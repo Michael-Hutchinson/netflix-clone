@@ -1,12 +1,29 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import MobileMenu from './MobileMenu/MobileMenu';
 import NavItem from './NavItem/NavItem';
 import { BsBell, BsChevronDown, BsSearch } from 'react-icons/bs';
 import AccountMenu from './AccountMenu/AccountMenu';
 
+const TOP_OFFSET = 66;
+
 const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [accountMenu, setAccountMenu] = useState(false);
+  const [background, setBackground] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > TOP_OFFSET) {
+        setBackground(true);
+      } else {
+        setBackground(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMobileMenu = useCallback(() => {
     setMobileMenu((current) => !current);
@@ -18,7 +35,11 @@ const Navbar = () => {
 
   return (
     <nav className='w-full fixed z-40'>
-      <div className='px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 bg-zinc-900 bg-opacity-90'>
+      <div
+        className={`px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 ${
+          background ? 'bg-zinc-900 bg-opacity-90' : ''
+        }`}
+      >
         <img className='h-4 lg:h-7' src='/images/logo.png' alt='netflix logo' />
         <div className='flex-row ml-8 gap-7 hidden lg:flex'>
           <NavItem label='Home' />
