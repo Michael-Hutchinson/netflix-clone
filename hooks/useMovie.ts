@@ -18,3 +18,5 @@ const useMovie = (id?: string) => {
     isLoading,
   };
 };
+
+export default useMovie;
