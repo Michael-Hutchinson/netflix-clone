@@ -1,3 +1,4 @@
+import useCurrentUser from '@/hooks/useCurrentUser';
 import { signOut } from 'next-auth/react';
 
 interface AccountMenuProps {
@@ -5,6 +6,7 @@ interface AccountMenuProps {
 }
 
 const AccountMenu = ({ open }: AccountMenuProps) => {
+  const { data: currentUser } = useCurrentUser();
   if (!open) return null;
   return (
     <div className='bg-black w-56 absolute top-14 right-0 py-5 flex-col border-2 border-gray-800 flex'>
@@ -16,7 +18,7 @@ const AccountMenu = ({ open }: AccountMenuProps) => {
             alt='profile image'
           />
           <p className='text-white text-sm group-hover/item:underline'>
-            Username
+            {currentUser?.name}
           </p>
         </div>
         <hr className='bg-gray-600 border-0 h-px my-4' />
