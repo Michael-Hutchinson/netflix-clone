@@ -40,17 +40,12 @@ const Favourite = ({ movieId }: FavouriteProps) => {
   const Icon = isFavourite ? AiOutlineCheck : AiOutlinePlus;
 
   return (
-    <div
+    <button
       onClick={toggleFavourites}
-      onKeyDown={(event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          toggleFavourites();
-        }
-      }}
       className='cursor-pointer group/item w-6 h-6 lg:w-10 lg:h-10 border-white border-2 rounded-full flex justify-center items-center transition hover:border-netural-300'
     >
       <Icon className='text-white' size={25} />
-    </div>
+    </button>
   );
 };
 
