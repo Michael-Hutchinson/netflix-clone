@@ -22,7 +22,7 @@ const Favourite = ({ movieId }: FavouriteProps) => {
     let response;
 
     if (isFavourite) {
-      response = await axios.delete(`/api/favourite/${movieId}`);
+      response = await axios.delete(`/api/favourite?movieId=${movieId}`);
     } else {
       response = await axios.post('/api/favourite', { movieId });
     }
