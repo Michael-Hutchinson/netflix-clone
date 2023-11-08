@@ -21,7 +21,7 @@ export default async function handler(
       }
 
       const user = await prismadb.user.update({
-        where: { email: currentUser.email || '' },
+        where: { email: currentUser.email ?? '' },
         data: {
           favouriteIds: {
             push: movieId,
@@ -47,7 +47,7 @@ export default async function handler(
       const updatedFavouriteIds = without(currentUser.favouriteIds, movieId);
 
       const updatedUser = await prismadb.user.update({
-        where: { email: currentUser.email || '' },
+        where: { email: currentUser.email ?? '' },
         data: {
           favouriteIds: updatedFavouriteIds,
         },
