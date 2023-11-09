@@ -91,21 +91,23 @@ const Auth = () => {
             </button>
             <div className='flex flex-row items-center gap-4 mt-8 justify-center'>
               <div
-                onClick={() =>
+                onClick={(e) => {
+                  e.preventDefault();
                   signIn('google', {
                     callbackUrl: '/profile',
-                  })
-                }
+                  });
+                }}
                 className='w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition'
               >
                 <FcGoogle size={24} />
               </div>
               <div
-                onClick={() =>
+                onClick={(e) => {
+                  e.preventDefault();
                   signIn('github', {
                     callbackUrl: '/profile',
-                  })
-                }
+                  });
+                }}
                 className='w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition'
               >
                 <FaGithub size={24} />
